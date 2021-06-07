@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Root Context: defines shared resources visible to all other web components -->
+    <!-- dbcp 설정 -->
+    <bean id="dbcpDataSource"
+          class="org.apache.commons.dbcp2.BasicDataSource"
+          p:driverClassName="org.mariadb.jdbc.Driver"
+          p:url="jdbc:mariadb://bigdata.csv7boydpoeg.ap-northeast-2.rds.amazonaws.com:3306/playground"
+          p:username="playground" p:password="bigdata2020"
+          p:initialSize="10" p:maxTotal="7"
+          p:maxIdle="3" />
+
+    <!-- myBatis 설정 -->
+<!--    <bean id="sqlSessionFactory"-->
+<!--          class="org.mybatis.spring.SqlSessionFactoryBean"-->
+<!--          p:dataSource-ref="dbcpDataSource"-->
+<!--          p:mapperLocations="classpath:mybatis3/*Mapper.xml" />-->
+
+<!--    <bean id="sqlSession"-->
+<!--          class="org.mybatis.spring.SqlSessionTemplate">-->
+<!--        <constructor-arg ref="sqlSessionFactory" index="0" />-->
+<!--    </bean>-->
+
+</beans>
