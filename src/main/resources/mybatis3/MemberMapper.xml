@@ -2,21 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
-<!--    <insert id="insertMember" statementType="PREPARED"-->
-<!--            parameterType="siestageek.spring.vo.Member">-->
-<!--        insert into member (userid, passwd, name, email)-->
-<!--        values (#{userid},#{passwd},#{name},#{email})-->
-<!--    </insert>-->
+<!--String newMember(Member m);-->
+<!--String findZipcode(String dong);-->
+<!--String checkUserid(String uid);-->
+<!--boolean checkLogin(Member m, HttpSession sess);-->
 
-<!--    <select id="loginMember" statementType="PREPARED"-->
-<!--            parameterType="siestageek.spring.vo.Member" resultType="int">-->
-<!--        select count(userid) cnt from member-->
-<!--        where userid = #{userid} and passwd = #{passwd}-->
-<!--    </select>-->
+    <insert id="insertMember" statementType="PREPARED"
+            parameterType="siestageek.spring.mvc.vo.Member">
+        insert into joinMember
+        (name, userid, passwd, jumin, zipcode, addr1, addr2, email, phone)
+        values (#{name}, #{userid}, #{passwd}, #{jumin}, #{zipcode}, #{addr1}, #{addr2}, #{email}, #{phone})
+    </insert>
 
-<!--    <select id="selectOneMember" statementType="PREPARED"-->
-<!--            parameterType="String" resultType="siestageek.spring.vo.Member">-->
-<!--        select * from member where userid = #{userid}-->
-<!--    </select>-->
+    <select id="selectZipcode" statementType="PREPARED"
+            parameterType="String"
+            resultType="siestageek.spring.mvc.vo.Zipcode">
+        select * from zipcode where dong like #{dong}
+    </select>
+
+    <select id="checkUserid" statementType="PREPARED"
+            parameterType="String" resultType="int">
+        select count(userid) cnt from joinMember
+        where userid = #{userid}
+    </select>
+
+    <select id="checkLogin" statementType="PREPARED"
+            parameterType="siestageek.spring.mvc.vo.Member" resultType="int">
+        select count(userid) cnt from joinMember
+        where userid = #{userid} and passwd = #{passwd}
+    </select>
 
 </mapper>

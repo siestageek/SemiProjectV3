@@ -26,7 +26,7 @@
     </div>  
       
     <!-- 로그인 폼 모달 -->
-    <div class="modal" id="loginfrm" tabindex="-1" role="dialog">
+    <div class="modal" id="loginmodal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -80,6 +80,8 @@
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="/js/join.js"></script>
+
   </body>
 </html>    
     

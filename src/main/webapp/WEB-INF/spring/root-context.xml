@@ -14,14 +14,14 @@
           p:maxIdle="3" />
 
     <!-- myBatis 설정 -->
-<!--    <bean id="sqlSessionFactory"-->
-<!--          class="org.mybatis.spring.SqlSessionFactoryBean"-->
-<!--          p:dataSource-ref="dbcpDataSource"-->
-<!--          p:mapperLocations="classpath:mybatis3/*Mapper.xml" />-->
+    <bean id="sqlSessionFactory"
+          class="org.mybatis.spring.SqlSessionFactoryBean"
+          p:dataSource-ref="dbcpDataSource"
+          p:mapperLocations="classpath:mybatis3/*Mapper.xml" />
 
-<!--    <bean id="sqlSession"-->
-<!--          class="org.mybatis.spring.SqlSessionTemplate">-->
-<!--        <constructor-arg ref="sqlSessionFactory" index="0" />-->
-<!--    </bean>-->
+    <bean id="sqlSession"
+          class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="sqlSessionFactory" index="0" />
+    </bean>
 
 </beans>
