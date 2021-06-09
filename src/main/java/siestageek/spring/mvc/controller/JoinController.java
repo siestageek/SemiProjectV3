@@ -10,6 +10,7 @@ import siestageek.spring.mvc.vo.Member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
@@ -72,6 +73,32 @@ public class JoinController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    // 로그인 처리
+    // 입력한 아이디/비밀번호로 로그인 가능여부 확인
+    // 로그인 성공시 로그인 여부를 시스템에 저장하기 위해
+    // HttpSession 객체를 이용함
+    // 즉, 서버가 생성한 정보를 일정기간 동안
+    // WAS에 저장해두고 필요할 때마다 이것을 활용함으로써
+    // 로그인한 사용자를 식별할 수 있음
+    @PostMapping("/join/login")
+    public String login(Member m, HttpSession sess) {
+        String returnPage = "redirect:/join/loginfail";
+
+        if (msrv.checkLogin(m, sess)) // 로그인 성공시
+            returnPage = "redirect:/";
+
+        return returnPage;
+    }
+
+    // 로그인 성공시 로그인여부를 세션객체로 만들어 두었음
+    // 로그아웃시에는 이 세션객체를 지워버리면 됨
+    @GetMapping("/join/logout")
+    public String logout(HttpSession sess) {
+        sess.invalidate();  // 세션객체 제거
+
+        return "redirect:/";
     }
 
 }

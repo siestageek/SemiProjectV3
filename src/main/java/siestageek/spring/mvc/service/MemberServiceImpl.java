@@ -76,6 +76,16 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public boolean checkLogin(Member m, HttpSession sess) {
-        return false;
+        boolean isLogin = false;
+
+        // 로그인 성공시 회원정보를 세션에 저장
+        // 입력한 아이디/비밀번호가 member 테이블에 있는지 확인
+        // 있으면 : 1을 반환, 없으면 : 0을 반환
+        if (mdao.selectLogin(m) > 0) {
+            sess.setAttribute("UID", m.getUserid());
+            isLogin = true;
+        }
+
+        return isLogin;
     }
 }

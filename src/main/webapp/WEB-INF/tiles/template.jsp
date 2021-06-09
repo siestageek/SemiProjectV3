@@ -31,7 +31,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3>로그인</h3>
-                    <button type="button" 
+                    <button type="button" id="lgmbtn"
                             class="btn btn-light">닫기</button>
                 </div>
                 
@@ -66,7 +66,7 @@
                 </div>
                 
                 <div class="modal-footer justify-content-center">
-                    <button type="button" 
+                    <button type="button" id="loginbtn"
                             class="btn btn-danger">로그인</button>
                     <button type="button" 
                             class="btn btn-warning">

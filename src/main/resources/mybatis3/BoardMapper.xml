@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+    <select id="selectBoard" statementType="PREPARED"
+            parameterType="int"
+            resultType="siestageek.spring.mvc.vo.Board">
+        select bdno, title, userid, regdate, views, thumbup from board
+        order by bdno desc limit #{snum}, 30
+    </select>
+
+</mapper>
