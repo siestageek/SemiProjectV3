@@ -27,7 +27,8 @@
     </select>
 
     <select id="checkLogin" statementType="PREPARED"
-            parameterType="siestageek.spring.mvc.vo.Member" resultType="int">
+            parameterType="siestageek.spring.mvc.vo.Member"
+            resultType="int">
         select count(userid) cnt from joinMember
         where userid = #{userid} and passwd = #{passwd}
     </select>

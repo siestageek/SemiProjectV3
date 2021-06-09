@@ -36,7 +36,11 @@ public class MemberServiceImpl implements MemberService {
 
         // 조회결과 출력방법 3 : json (추천)
         // {'sido':'서울', 'gugun':'강남구',
-        //  'dong':'논현동', 'bunji':'123번지'}
+        //  'dong':'논현동', 'bunji':'123번지'},
+        // {'sido':'서울', 'gugun':'강남구',
+        //  'dong':'논현동', 'bunji':'123번지'},
+        // {'sido':'서울', 'gugun':'강남구',
+        //  'dong':'논현동', 'bunji':'123번지'},
 
         // StringBuilder sb = new StringBuilder();
         // sb.append("{'sido':").append("'서울',")
@@ -67,7 +71,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public String checkUserid(String uid) {
-        return null;
+        return mdao.selectOneUserid(uid)+"";
     }
 
     @Override

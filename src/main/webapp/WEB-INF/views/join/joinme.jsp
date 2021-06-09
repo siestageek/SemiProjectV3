@@ -73,14 +73,14 @@
                  <label class="col-2 col-form-label text-danger text-right" for="userid">아이디</label>
                     <input type="text" name="userid" id="userid"
                            class="form-control border-danger col-3">
-                    <span class="col-form-label">&nbsp;8~16자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.</span>
+                    <span id="uidmsg" class="text-muted col-form-label">&nbsp;8~16자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.</span>
                 </div><!-- 아이디 -->
 
                 <div class="form-group row">
                     <label class="col-2 col-form-label text-danger text-right" for="passwd">비밀번호</label>
                     <input type="password" name="passwd" id="passwd"
                            class="form-control border-danger col-3">
-                    <span class="col-form-label">&nbsp;8~16자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.</span>
+                    <span id="pwdmsg" class="text-muted col-form-label">&nbsp;8~16자의 영문 소문자, 숫자와 특수기호(_)만 사용할 수 있습니다.</span>
                 </div><!-- 비번 -->
 
                 <div class="form-group row">
