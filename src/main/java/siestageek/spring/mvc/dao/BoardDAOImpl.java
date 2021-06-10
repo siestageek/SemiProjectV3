@@ -14,18 +14,18 @@ public class BoardDAOImpl implements BoardDAO {
     @Autowired private SqlSession sqlSession;
 
     @Override
-    public boolean insertBoard(Board b) {
-        return false;
+    public int insertBoard(Board b) {
+        return sqlSession.insert("board.insertBoard", b);
     }
 
     @Override
-    public boolean updateBoard(Board b) {
-        return false;
+    public int updateBoard(Board b) {
+        return 0;
     }
 
     @Override
-    public boolean deleteBoard(String bdno) {
-        return false;
+    public int deleteBoard(String bdno) {
+        return 0;
     }
 
     @Override
@@ -35,26 +35,26 @@ public class BoardDAOImpl implements BoardDAO {
 
     @Override
     public List<Board> findSelectBoard(Map<String, Object> param) {
-        return null;
+        return sqlSession.selectList("board.findSelect", param);
     }
 
     @Override
     public Board selectOneBoard(String bdno) {
-        return null;
+        return sqlSession.selectOne("board.selectOne", bdno);
     }
 
     @Override
     public int selectCountBoard() {
-        return 0;
+        return sqlSession.selectOne("board.countBoard");
     }
 
     @Override
     public int selectCountBoard(Map<String, Object> param) {
-        return 0;
+        return sqlSession.selectOne("board.findSelectCount", param);
     }
 
     @Override
-    public boolean viewCountBoard(String bdno) {
-        return false;
+    public int viewCountBoard(String bdno) {
+        return sqlSession.update("board.viewsBoard", bdno);
     }
 }

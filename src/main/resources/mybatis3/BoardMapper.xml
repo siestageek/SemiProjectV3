@@ -9,4 +9,52 @@
         order by bdno desc limit #{snum}, 30
     </select>
 
+    <select id="countBoard" statementType="PREPARED"
+        resultType="int">
+        select count(bdno) cnt from board
+    </select>
+
+    <insert id="insertBoard" statementType="PREPARED"
+        parameterType="siestageek.spring.mvc.vo.Board">
+        insert into board (title, userid, contents)
+        values (#{title}, #{userid}, #{contents})
+    </insert>
+
+    <select id="selectOne" statementType="PREPARED"
+        parameterType="String"
+            resultType="siestageek.spring.mvc.vo.Board">
+        select * from board where bdno = #{bdno}
+    </select>
+
+    <update id="viewsBoard" statementType="PREPARED"
+            parameterType="String">
+        update board set views = views + 1 where bdno = #{bdno}
+    </update>
+
+    <!-- 동적 질의문으로 검색 기능 구현 -->
+    <!-- 단, 컬럼명이나 테이블명에는 #{}가 아닌 ${}를 사용! -->
+    <select id="findSelect" statementType="PREPARED"
+            parameterType="map"
+            resultType="siestageek.spring.mvc.vo.Board">
+        select bdno, title, userid, regdate, views, thumbup from board
+            <if test="ftype != 'titcont'">
+                    where ${ftype} like concat(#{fkey}, '%') </if>
+            <if test="ftype == 'titcont'">
+                    where title like concat(#{fkey}, '%') or
+                    contents like concat(#{fkey}, '%') </if>
+        order by bdno desc limit #{snum}, 30
+    </select>
+
+
+    <select id="findSelectCount" statementType="PREPARED"
+            parameterType="map" resultType="int">
+        select count(bdno) cnt from board
+        <if test="ftype != 'titcont'">
+            where ${ftype} like concat(#{fkey}, '%') </if>
+        <if test="ftype == 'titcont'">
+            where title like concat(#{fkey}, '%') or
+            contents like concat(#{fkey}, '%') </if>
+    </select>
+
+
 </mapper>
