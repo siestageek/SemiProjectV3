@@ -34,6 +34,39 @@ $('#findbtn').on('click', function(){
 });
 
 
+// findtype tag setting
+// $('#findtype').val('${param.findtype}')
+//    .prop('selected', 'true');
+
+
+// new board reply
+$('#newbrbtn').on('click', function() {
+    if ($('#reply').val() == '') alert('댓글을 작성하세요!');
+    else {
+        const frm = $('#replyfrm');
+        frm.attr('method', 'post');
+        frm.attr('action', '/reply/write');
+        frm.submit();
+    }
+});
+
+// show reply
+function addReply(rno) {
+    $('#replyModal').modal('show');
+    $('#rpno').val(rno);  // 대댓글 작성시 부모댓글번호를 넘겨줌
+}
+
+// new reply
+$('#newrrpbtn').on('click', function (){
+    if ($('#rreply').val() == '') alert('대댓글을 작성하세요!!');
+    else {
+        const frm = $('#rpfrm');
+        frm.attr('method', 'post');
+        frm.attr('action', '/rreply/write');
+        frm.submit();
+    }
+});
+
 
 
 

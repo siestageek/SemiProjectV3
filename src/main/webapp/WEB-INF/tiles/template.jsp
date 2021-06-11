@@ -86,6 +86,12 @@
     <script src="/js/join.js"></script>
     <script src="/js/board.js"></script>
 
+    <script>
+        // board findtype tag setting
+        $('#findtype').val('${param.findtype}')
+            .prop('selected', 'true');
+    </script>
+
   </body>
 </html>    
     
