@@ -30,4 +30,47 @@
         select * from pds where pno = #{pno}
     </select>
 
+    <select id="selectFname" statementType="PREPARED"
+        parameterType="Map"
+        resultType="siestageek.spring.mvc.vo.Pds">
+        select ${order} fname1, uuid from pds
+        where pno = #{pno}
+    </select>
+
+    <update id="updateDown" statementType="PREPARED"
+        parameterType="Map">
+        update pds set ${order} = ${order} + 1
+        where pno = #{pno};
+    </update>
+
+    <update id="updateThumbs" statementType="PREPARED"
+        parameterType="String">
+        update pds set thumbup = thumbup + 1
+        where pno = #{pno}
+    </update>
+
+    <select id="selectPrev" statementType="PREPARED"
+        parameterType="String" resultType="String">
+        select prev from
+            (select pno,
+                    lead(pno) over (order by pno desc) prev
+             from pds) newone
+        where pno = #{pno}
+    </select>
+
+
+    <select id="selectNext" statementType="PREPARED"
+        parameterType="String" resultType="String">
+        select next from
+            (select pno,
+                    lag(pno) over (order by pno desc) next
+             from pds) newone
+        where pno = #{pno}
+    </select>
+
+    <delete id="deletePds" statementType="PREPARED"
+            parameterType="String">
+        delete from pds where pno = #{pno}
+    </delete>
+
 </mapper>

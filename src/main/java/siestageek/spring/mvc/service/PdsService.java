@@ -13,8 +13,14 @@ public interface PdsService {
     int countPds();
 
     Pds readOnePds(String pno);
-    Pds readOneFname(String pno, String order);
 
+    Pds readOneFname(String pno, String order);
     boolean downCountPds(String pno, String order);
 
+    void modifyRecmd(String pno);
+
+    String readPrvpno(String pno);
+    String readNxtpno(String pno);
+
+    Pds removePds(String pno);
 }
