@@ -11,4 +11,5 @@ public interface GalleryService {
     List<Gallery> readGallery(String cp);
     Gallery readOneGallery(String gno);
 
+    void modifyGallery(Gallery g, MultipartFile[] img);
 }

@@ -10,4 +10,8 @@ public interface GalleryDAO {
     List<Gallery> selectGallery(int snum);
     Gallery selectOneGallery(String gno);
 
+    int updateGallery(Gallery g);
+
+    String readFnames(String gno);
+    String readFsizes(String gno);
 }

@@ -27,4 +27,23 @@
         where TABLE_NAME = 'gallery';
     </select>
 
+    <update id="updateGallery" statementType="PREPARED"
+        parameterType="siestageek.spring.mvc.vo.Gallery">
+        update gallery set title = #{title}, contents = #{contents}
+            <if test="todie != ''">
+               ,fnames = #{fnames}, fsizes = #{fsizes}
+            </if>
+        where gno = #{gno};
+    </update>
+
+    <select id="readFnames" statementType="PREPARED"
+            parameterType="String" resultType="String">
+        select fnames from gallery where gno = #{gno}
+    </select>
+
+    <select id="readFsizes" statementType="PREPARED"
+            parameterType="String" resultType="String">
+        select fsizes from gallery where gno = #{gno}
+    </select>
+
 </mapper>

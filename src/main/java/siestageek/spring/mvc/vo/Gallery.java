@@ -11,6 +11,15 @@ public class Gallery {
     protected String fnames;
     protected String fsizes;
     protected String uuid;
+    protected String todie;
+
+    public String getTodie() {
+        return todie;
+    }
+
+    public void setTodie(String todie) {
+        this.todie = todie;
+    }
 
     public String getGno() {
         return gno;
