@@ -136,6 +136,8 @@ public class GalleryServiceImpl implements GalleryService {
 
             // 수정된 결과 확인
             // System.out.println(String.join("/", ofn));
+            fnames = String.join("/", ofn);
+            fsizes = String.join("/", ofs);
 
             g.setFnames( fnames );
             g.setFsizes( fsizes );
