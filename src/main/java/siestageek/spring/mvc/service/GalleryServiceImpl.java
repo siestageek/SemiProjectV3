@@ -165,20 +165,20 @@ public class GalleryServiceImpl implements GalleryService {
                 } catch (Exception ex) { }
             }
 
+            // 썸내일 이미지 생성
+            // 업로드한 이미지들 중 첫번째 이미지를 썸내일로 만들기 위해 파일명 생성
+            String ofname = g.getFnames().split("/")[0];
+            int pos = ofname.lastIndexOf(".");
+            String fname = ofname.substring(0,pos);
+            String fext = ofname.substring(pos+1);
+            ofname = fname + g.getUuid() + "." + fext;
+
+            imgutil.imageCropResize(ofname, g.getGno() + "");
+
         } // if
 
         // 수정된 내용 및 파일정보를 테이블에 저장
         gdao.updateGallery(g);
-
-        // 썸내일 이미지 생성
-        // 업로드한 이미지들 중 첫번째 이미지를 썸내일로 만들기 위해 파일명 생성
-        String ofname = g.getFnames().split("/")[0];
-        int pos = ofname.lastIndexOf(".");
-        String fname = ofname.substring(0,pos);
-        String fext = ofname.substring(pos+1);
-        ofname = fname + g.getUuid() + "." + fext;
-
-        imgutil.imageCropResize(ofname, g.getGno() + "");
 
     }
 }
