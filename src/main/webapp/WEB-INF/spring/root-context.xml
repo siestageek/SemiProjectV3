@@ -13,10 +13,20 @@
           p:initialSize="10" p:maxTotal="7"
           p:maxIdle="3" />
 
+    <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="dbcpDataSource" />
+        <property name="logFormatter">
+            <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+                <property name="loggingType" value="MULTI_LINE" />
+                <property name="sqlPrefix" value="SQL : "/>
+            </bean>
+        </property>
+    </bean>
+
     <!-- myBatis 설정 -->
     <bean id="sqlSessionFactory"
           class="org.mybatis.spring.SqlSessionFactoryBean"
-          p:dataSource-ref="dbcpDataSource"
+          p:dataSource-ref="dataSource"
           p:mapperLocations="classpath:mybatis3/*Mapper.xml" />
 
     <bean id="sqlSession"

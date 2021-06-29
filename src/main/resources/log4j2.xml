@@ -76,6 +76,31 @@
     <!-- spring 5 log -->
     <logger name="org.springframework.web" level="debug" />
 
+    <!--  SQL 쿼리 문장 -->
+    <logger name="jdbc.sqlonly" additivity="false">
+        <AppenderRef ref="console" level="info" />
+    </logger>
+
+        <!--  SQL문과 해당 SQL을 실행시키는데 수행된 시간 정보(milliseconds) -->
+        <logger name="jdbc.sqltiming" additivity="false">
+            <AppenderRef ref="console" level="warn" />
+        </logger>
+
+        <!--  ResultSet을 제외한 모든 JDBC 호출 정보 -->
+        <logger name="jdbc.audit" additivity="false">
+            <AppenderRef ref="console" level="warn" />
+        </logger>
+
+        <!--  ResultSet을 포함한 모든 JDBC 호출 정보 -->
+        <logger name="jdbc.resultset" additivity="false">
+            <AppenderRef ref="console" level="warn" />
+        </logger>
+
+        <!-- SQL 결과 조회된 데이터의 table을 로그 -->
+        <logger name="jdbc.resultsettable" additivity="false">
+            <AppenderRef ref="console" level="info" />
+        </logger>
+
     </Loggers>
 
 </Configuration>
