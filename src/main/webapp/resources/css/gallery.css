@@ -4,3 +4,11 @@
         margin-left: 8px; cursor: pointer }
 .moveright { margin-left: 55px }
 .pushdown { margin-bottom: 10px }
+
+.card-title {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+}

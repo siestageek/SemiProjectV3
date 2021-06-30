@@ -7,3 +7,16 @@
 .pushright { float: right }
 .bdcsize { height: 550px }
 .patxt { font-size: 13px }
+.ellipsis { white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis }
+
+.table td {
+    max-width: 177px;
+}
+.table td a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+}

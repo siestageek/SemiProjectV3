@@ -87,7 +87,7 @@
             <thead style="background: #dff0d8">
                 <tr>
                     <th style="width: 7%">번호</th>
-                    <th style="">제목</th>
+                    <th style="width: 57%">제목</th>
                     <th style="width: 12%">작성자</th>
                     <th style="width: 10%">작성일</th>
                     <th style="width: 7%">추천</th>
@@ -108,7 +108,9 @@
                 <c:forEach var="bd" items="${bds}">
                 <tr>
                     <td>${snum}</td>
-                    <td><a href="/board/view?bdno=${bd.bdno}">${bd.title}</a></td>
+<%--                    <td class="ellipsis"><a href="/board/view?bdno=${bd.bdno}">${bd.title}</a></td>--%>
+                    <td>
+                            <a href="/board/view?bdno=${bd.bdno}" class="ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></td>
                     <td>${bd.userid}</td>
                     <td>${fn:substring(bd.regdate,0,10)}</td>
                     <td>${bd.thumbup}</td>
